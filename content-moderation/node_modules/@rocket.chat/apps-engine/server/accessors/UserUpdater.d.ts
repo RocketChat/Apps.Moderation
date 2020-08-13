@@ -1,0 +1,11 @@
+import { IUserUpdater } from '../../definition/accessors/IUserUpdater';
+import { IUser } from '../../definition/users/IUser';
+import { AppBridges } from '../bridges';
+export declare class UserUpdater implements IUserUpdater {
+    private readonly bridges;
+    private readonly appId;
+    constructor(bridges: AppBridges, appId: string);
+    updateStatusText(user: IUser, statusText: IUser['statusText']): Promise<boolean>;
+    updateBio(user: IUser, bio: IUser['bio']): Promise<boolean>;
+    updateCustomFields(user: IUser, customFields: IUser['customFields']): Promise<boolean>;
+}

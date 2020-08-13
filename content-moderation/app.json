@@ -1,0 +1,15 @@
+{
+    "id": "1217738b-6c87-47a3-a88b-b6056334f34e",
+    "version": "0.0.1",
+    "requiredApiVersion": "^1.4.0",
+    "iconFile": "icon.png",
+    "author": {
+        "name": "Shreyansh",
+        "homepage": "https://shreyanshtomar.tech",
+        "support": "shreyanshtomar.code@gmail.com"
+    },
+    "name": "Content Moderation",
+    "nameSlug": "content-moderation",
+    "classFile": "ContentModerationApp.ts",
+    "description": "The app filters offensive images and links in chat."
+}

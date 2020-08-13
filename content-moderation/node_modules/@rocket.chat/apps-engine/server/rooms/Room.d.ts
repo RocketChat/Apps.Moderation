@@ -1,0 +1,34 @@
+import { IRoom, RoomType } from '../../definition/rooms';
+import { IUser } from '../../definition/users';
+import { AppManager } from '../AppManager';
+declare const PrivateManager: unique symbol;
+export declare class Room implements IRoom {
+    id: string;
+    displayName?: string;
+    slugifiedName: string;
+    type: RoomType;
+    creator: IUser;
+    isDefault?: boolean;
+    isReadOnly?: boolean;
+    displaySystemMessages?: boolean;
+    messageCount?: number;
+    createdAt?: Date;
+    updatedAt?: Date;
+    lastModifiedAt?: Date;
+    customFields?: {
+        [key: string]: any;
+    };
+    userIds?: Array<string>;
+    private _USERNAMES;
+    private [PrivateManager];
+    /**
+     * @deprecated
+     */
+    usernames: Array<string>;
+    constructor(room: IRoom, manager: AppManager);
+    readonly value: object;
+    toJSON(): object;
+    toString(): object;
+    valueOf(): object;
+}
+export {};
