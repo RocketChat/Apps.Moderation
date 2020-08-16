@@ -6,7 +6,7 @@ The dockerised moderation service can be deployed to any server easily since all
 ![ezgif com-optimize](https://user-images.githubusercontent.com/18248623/89886718-babcff80-dbea-11ea-9c19-afee96f9aff1.gif)
 
 
-## Quick start for code developers
+## Quick start guide for developers
 Prerequisites:
 
 * [Rocket.Chat-Deploy](https://docs.rocket.chat/apps-development/getting-started#installation)<br>
