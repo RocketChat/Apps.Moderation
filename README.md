@@ -16,7 +16,7 @@ From Rocket Chat open Administration -> General -> Apps and make sure the follow
  - Enable App development mode 
  - Enable the App Framework
  <br>
-1. Open a Command Line and execute the following code
+Open a Command Line and execute the following code
 
 `git clone https://github.com/RocketChat/Apps.Moderation.git`<br>
 `cd Apps.Moderation`<br>
