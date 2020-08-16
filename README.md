@@ -17,11 +17,11 @@ From Rocket Chat open Administration -> General -> Apps and make sure the follow
  - Enable the App Framework
  <br>
 1. Open a Command Line and execute the following code
-```sh
-git clone https://github.com/RocketChat/Apps.Moderation.git
-cd Apps.Moderation
-npm install
-```
+
+`git clone https://github.com/RocketChat/Apps.Moderation.git`<br>
+`cd Apps.Moderation`<br>
+`npm install`
+
 You can now make changes and build with
 
 `rc-apps package`
