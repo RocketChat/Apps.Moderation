@@ -33,3 +33,7 @@ And to deploy it to a local Rocket.Chat server to test the application
 or to update the installation
 
 `rc-apps deploy -f --update -u RC_USER -p RC_PASSWORD --url=http://localhost:3000`
+
+### Note
+In order for the Apps.Moderation to work it requires further configuration:
+[README](https://github.com/RocketChat/content-moderation/blob/master/Readme.md) for futher setup!
