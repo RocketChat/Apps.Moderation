@@ -37,3 +37,14 @@ or to update the installation
 ### Note
 In order for the Apps.Moderation to work it requires further configuration:
 [README](https://github.com/RocketChat/content-moderation/blob/master/Readme.md) for futher setup!
+
+### Contribute towards the expansion of the service:
+As of now we have only one Machine Learning model that is capable of classifying the offensive content with an accuracy of ~92%.
+[Repository](https://github.com/RocketChat/content-moderation/blob/master/Readme.md) for Content Moderation Engine.
+To expand the service for different medias like Gifs, Videos, all the other media that requires analysing the media frame by frame for classification :
+1. We'll have to collect(scrap) the data from various websites like reddit(NSFW, SFW), instagram(NSFW, SFW), Twitter(NSFW, SFW) & Various pornography sites for 
+   NSFW content.
+2. Now that we have data, we need a Machine Learing Model. To build video classification models I recommend to give it a read. --> [Video Classification](https://www.analyticsvidhya.com/blog/2019/09/step-by-step-deep-learning-tutorial-video-classification-python/) & see this [YouTube](https://www.youtube.com/watch?v=SphaH33JU3Q) video to get an idea how to get started.
+3. Build a Flask app with docker support for easy deployment.
+4. Once the flask app is working, configure & add required settings in [Content Moderation App](https://github.com/RocketChat/Apps.Moderation) so that Rocket Chat
+can send the video url to the flask app to send predictions to [Content Moderation App](https://github.com/RocketChat/Apps.Moderation) to take actions like blocking the media or not.
