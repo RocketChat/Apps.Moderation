@@ -5,8 +5,25 @@ The dockerised moderation service can be deployed to any server easily since all
 
 ![ezgif com-optimize](https://user-images.githubusercontent.com/18248623/89886718-babcff80-dbea-11ea-9c19-afee96f9aff1.gif)
 
+### Configuration:
+1. Generate Personal Access Tokens My Account -> Personal Access Tokens -> Add (You can either ignore or not ignore 2 Factor Authentication). Copy User-ID & Token for future use.
+2. Host the flask app on the server. We can use a [docker-compose](https://github.com/RocketChat/content-moderation/blob/master/docker-compose-server.yml) file for this purpose. <br>
+Edit [docker-compose-server.yml](https://github.com/RocketChat/content-moderation/blob/master/docker-compose-server.yml) in your local content-moderation directory.
+& change the following
+parameters:<br>
+  a. [RC_UUID](https://github.com/RocketChat/content-moderation/blob/fa05ae92ca6497db6fca6558e2ff55ddc00c1543/docker-compose-server.yml#L13) <br>
+  b. [RC_TOKEN](https://github.com/RocketChat/content-moderation/blob/fa05ae92ca6497db6fca6558e2ff55ddc00c1543/docker-compose-server.yml#L14)<br>
+  We copied them in previous step.
+```sh
+cd .. # Make sure you're in moderation directory
+docker-compose -f docker-compose-server.yml up -d
+```
+3. Now, Configure the app settings. Provide the Rocket.Chat Host URL and the Flask app Host URL which can be obtained after the 2nd Step. <br>
+**Configuration Setting:** Administration -> Apps -> Content Moderation.<br>
+'Rocket Chat host URL': <Provide your own Rocket Chat Host Url> &  'Content Moderation App Host URL': <Provide the Flask App Host URL> in Content Moderation App's Setting.<br>
+ for example: 'Rocket Chat host URL': http://rocket-chat:3000 &  'Content Moderation App Host URL': http://moderation-api:5000/predict<br>
 
-## Quick start guide for developers
+### Quick start guide for developers
 Prerequisites:
 
 * [Rocket.Chat-Deploy](https://docs.rocket.chat/apps-development/getting-started#installation)<br>
