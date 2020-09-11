@@ -28,10 +28,8 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
         const imageUrl = (message.attachments || []).map((a) => rcHostUrl + a.imageUrl);
 
         if (imageUrl.length > 0) {
-            console.log('****** ' + imageUrl + '  ******');
             const json = JSON.stringify({url: imageUrl});
             this.customLogger.log(json);
-            // console.log(json);
 
             const options = {
                 headers: {
@@ -40,7 +38,7 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
                 content: json,
             };
             const response = await http.post(contentModerationAppUrl, options);
-            console.log(response.content );
+            this.customLogger.log(response.content);
 
             const imageObj = JSON.parse(response.content || '');
 
@@ -62,16 +60,20 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
 
         if (matches !== null) {
             const json = JSON.stringify({url: matches});
-            console.log('****** ' + json + '****** ');
+            this.customLogger.log(json);
+
             const options = {
                 headers: {
                     'content-type': 'application/json',
                 },
                 content: json,
             };
+
             const response = await http.post(contentModerationAppUrl, options);
-            console.log(response.content);
+            this.customLogger.log(response.content);
+
             const imageObj = JSON.parse(response.content || '');
+
             if (imageObj.classification === 'nsfw') {
             read.getNotifier().notifyUser(message.sender, {
                 room: message.room,
@@ -93,7 +95,7 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
             required: true,
             public: false,
             i18nLabel: 'Rocket Chat host URL',
-            i18nDescription: 'Provide the URL where Rocket Chat is hosted',
+            i18nDescription: 'Provide the URL where Rocket Chat is hosted ',
             i18nPlaceholder: 'http://rocket-chat:3000',
         });
         await configuration.settings.provideSetting({
@@ -103,7 +105,7 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
             required: true,
             public: false,
             i18nLabel: 'Content Moderation App Host URL',
-            i18nDescription: 'Provide the URL where the Flask is hosted',
+            i18nDescription: 'Provide the URL where the Flask App is hosted. For stepwise process please follow: https://github.com/RocketChat/Apps.Moderation/blob/master/README.md#configuration ',
             i18nPlaceholder: 'http://moderation-api:5000/predict',
         });
     }

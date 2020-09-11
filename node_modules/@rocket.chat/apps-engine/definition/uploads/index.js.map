@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/definition/uploads/index.ts"],"names":[],"mappings":";;AACA,2CAAwC;AAIpC,oBAJK,qBAAS,CAIL","file":"index.js","sourcesContent":["import { IUpload } from './IUpload';\nimport { StoreType } from './StoreType';\n\nexport {\n    IUpload,\n    StoreType,\n};\n"]}

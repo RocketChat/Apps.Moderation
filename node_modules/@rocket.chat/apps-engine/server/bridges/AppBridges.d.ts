@@ -1,0 +1,34 @@
+import { IAppActivationBridge } from './IAppActivationBridge';
+import { IAppApiBridge } from './IAppApiBridge';
+import { IAppCommandBridge } from './IAppCommandBridge';
+import { IAppDetailChangesBridge } from './IAppDetailChangesBridge';
+import { IEnvironmentalVariableBridge } from './IEnvironmentalVariableBridge';
+import { IHttpBridge } from './IHttpBridge';
+import { IInternalBridge } from './IInternalBridge';
+import { IListenerBridge } from './IListenerBridge';
+import { ILivechatBridge } from './ILivechatBridge';
+import { IMessageBridge } from './IMessageBridge';
+import { IPersistenceBridge } from './IPersistenceBridge';
+import { IRoomBridge } from './IRoomBridge';
+import { IServerSettingBridge } from './IServerSettingBridge';
+import { IUiInteractionBridge } from './IUiInteractionBridge';
+import { IUploadBridge } from './IUploadBridge';
+import { IUserBridge } from './IUserBridge';
+export declare abstract class AppBridges {
+    abstract getCommandBridge(): IAppCommandBridge;
+    abstract getApiBridge(): IAppApiBridge;
+    abstract getAppDetailChangesBridge(): IAppDetailChangesBridge;
+    abstract getEnvironmentalVariableBridge(): IEnvironmentalVariableBridge;
+    abstract getHttpBridge(): IHttpBridge;
+    abstract getListenerBridge(): IListenerBridge;
+    abstract getLivechatBridge(): ILivechatBridge;
+    abstract getMessageBridge(): IMessageBridge;
+    abstract getPersistenceBridge(): IPersistenceBridge;
+    abstract getAppActivationBridge(): IAppActivationBridge;
+    abstract getRoomBridge(): IRoomBridge;
+    abstract getInternalBridge(): IInternalBridge;
+    abstract getServerSettingBridge(): IServerSettingBridge;
+    abstract getUploadBridge(): IUploadBridge;
+    abstract getUserBridge(): IUserBridge;
+    abstract getUiInteractionBridge(): IUiInteractionBridge;
+}
