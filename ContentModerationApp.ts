@@ -21,8 +21,9 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
     public async executePreMessageSentPrevent(message: IMessage, read: IRead, http: IHttp, persistence: IPersistence): Promise<boolean> {
         // Grabbing image URLs..
         const serverUrl = await read.getEnvironmentReader().getSettings().getById('Content_Moderation_App');
-        const publicUrl = await read.getEnvironmentReader().getSettings().getById('Rocket Chat host URL');
-        const rcHostUrl: string = publicUrl.value;
+        // const publicUrl = await read.getEnvironmentReader().getSettings().getById('Rocket Chat host URL');
+        // const rcHostUrl: string = publicUrl.value;
+        const rcHostUrl = await read.getEnvironmentReader().getServerSettings().getValueById('SITE_URL');
         const contentModerationAppUrl: string = serverUrl.value;
 
         const imageUrl = (message.attachments || []).map((a) => rcHostUrl + a.imageUrl);
@@ -86,16 +87,6 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
         return false;
       }
       protected async extendConfiguration(configuration: IConfigurationExtend, environmentRead: IEnvironmentRead): Promise<void> {
-        await configuration.settings.provideSetting({
-            id: 'Rocket Chat host URL',
-            type: SettingType.STRING,
-            packageValue: '',
-            required: true,
-            public: false,
-            i18nLabel: 'Rocket Chat host URL',
-            i18nDescription: 'Provide the URL where Rocket Chat is hosted',
-            i18nPlaceholder: 'http://rocket-chat:3000',
-        });
         await configuration.settings.provideSetting({
             id: 'Content_Moderation_App',
             type: SettingType.STRING,
