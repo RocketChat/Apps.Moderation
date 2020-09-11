@@ -90,19 +90,6 @@ export class ContentModerationApp extends App implements IPreMessageSentPrevent 
       }
       protected async extendConfiguration(configuration: IConfigurationExtend, environmentRead: IEnvironmentRead): Promise<void> {
         await configuration.settings.provideSetting({
-<<<<<<< HEAD
-            id: 'Rocket Chat host URL',
-            type: SettingType.STRING,
-            packageValue: '',
-            required: true,
-            public: false,
-            i18nLabel: 'Rocket Chat host URL',
-            i18nDescription: 'Provide the URL where Rocket Chat is hosted ',
-            i18nPlaceholder: 'http://rocket-chat:3000',
-        });
-        await configuration.settings.provideSetting({
-=======
->>>>>>> 555c509c782f5d2dcbe8d71696b00ba68f37b7ed
             id: 'Content_Moderation_App',
             type: SettingType.STRING,
             packageValue: '',
