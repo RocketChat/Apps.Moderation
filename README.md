@@ -20,8 +20,8 @@ docker-compose -f docker-compose-server.yml up -d
 ```
 3. Now, Configure the app settings. Provide the Rocket.Chat Host URL and the Flask app Host URL which can be obtained after the 2nd Step. <br>
 **Configuration Setting:** Administration -> Apps -> Content Moderation.<br>
-'Rocket Chat host URL': <Provide your own Rocket Chat Host Url> &  'Content Moderation App Host URL': <Provide the Flask App Host URL> in Content Moderation App's Setting.<br>
- for example: 'Rocket Chat host URL': http://rocket-chat:3000 &  'Content Moderation App Host URL': http://moderation-api:5000/predict<br>
+ 'Content Moderation App Host URL': <Provide the Flask App Host URL> in Content Moderation App's Setting.<br>
+ for example: 'Content Moderation App Host URL': http://moderation-api:5000/predict<br>
 
 ### Quick start guide for developers
 Prerequisites:
